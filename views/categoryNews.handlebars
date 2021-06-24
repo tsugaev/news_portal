@@ -1,0 +1,47 @@
+<style>
+  body{
+    margin: 0;
+  }
+  .container{
+    width: 1240px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .Block{
+    margin: auto;
+    width: 800px;
+  }
+
+  .title{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .text{
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .img_News{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+</style>
+
+
+
+<div class="container">
+
+  {{#each news}}
+
+    <div class="Block">
+
+      <img class="img_News" src="{{imgUrl}}" alt="">
+
+      <a class="title" href="/news/{{_id}}">{{title}}</a>
+      <div class="text">{{txt}}</div>
+    </div>
+  {{/each}}
+
+</div>

@@ -1,0 +1,64 @@
+<style>
+  body{
+    margin: 0;
+  }
+  .container{
+    width: 1240px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .block{
+    margin: auto;
+    width: 800px;
+  }
+
+  .title{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .text{
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .img_News{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .block_comm{
+    background-color: darkgrey;
+    border-radius: 5px;
+  }
+</style>
+
+
+<div class="block">
+  <img class="img_News" src="{{post.imgUrl}}">
+</div>
+<div class="block">
+  <h3>
+    {{post.title}}
+  </h3>
+  <h4>
+    {{post.txt}}
+  </h4>
+
+</div>
+
+<div class="block">
+  <form action="/news/{{post._id}}/comments" method="post">
+    <p><input type="user" name="user" placeholder="ваше имя"></p>
+    <p><input type="txt" name="txt" placeholder="ваш комментарий"></p>
+    <p><input type="submit" value="Отправить"></p>
+  </form>
+</div>
+<div class="comments">
+  {{#each comments}}
+    <div class="block block_comm">
+      <h4>{{user}}</h4>
+      <h5>{{txt}}</h5>
+    </div>
+  {{/each}}
+</div>
